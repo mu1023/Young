@@ -128,9 +128,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SharedMemory.cpp" />
-    <ClCompile Include="YoungDataPointLogger.cpp" />
-    <ClCompile Include="YoungFormatter.cpp" />
-    <ClCompile Include="YoungLogging.cpp" />
+    <ClCompile Include="DataPointLogger.cpp" />
+    <ClCompile Include="Formatter.cpp" />
+    <ClCompile Include="Logging.cpp" />
     <ClCompile Include="YoungTime.cpp" />
   </ItemGroup>
   <ItemGroup>

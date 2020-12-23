@@ -24,17 +24,17 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="YoungDataPointLogger.cpp">
-      <Filter>源文件\Logger</Filter>
-    </ClCompile>
-    <ClCompile Include="YoungFormatter.cpp">
-      <Filter>源文件\Logger</Filter>
-    </ClCompile>
-    <ClCompile Include="YoungLogging.cpp">
-      <Filter>源文件\Logger</Filter>
-    </ClCompile>
     <ClCompile Include="SharedMemory.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DataPointLogger.cpp">
+      <Filter>源文件\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Formatter.cpp">
+      <Filter>源文件\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Logging.cpp">
+      <Filter>源文件\Logger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
