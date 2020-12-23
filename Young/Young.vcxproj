@@ -74,11 +74,14 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>fmtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -123,6 +126,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="SharedMemory.cpp" />
+    <ClCompile Include="YoungDataPointLogger.cpp" />
+    <ClCompile Include="YoungFormatter.cpp" />
+    <ClCompile Include="YoungLogging.cpp" />
+    <ClCompile Include="YoungTime.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\SharedMemory.h" />
+    <ClInclude Include="..\include\SharedMemoryMap.h" />
+    <ClInclude Include="..\include\Noncopyable.h" />
+    <ClInclude Include="..\include\Singleton.h" />
+    <ClInclude Include="..\include\AppenderBase.h" />
+    <ClInclude Include="..\include\AsyncLogging.h" />
+    <ClInclude Include="..\include\ConsoleAppender.h" />
+    <ClInclude Include="..\include\DataPointLogger.h" />
+    <ClInclude Include="..\include\YoungDefine.h" />
+    <ClInclude Include="..\include\FileAppender.h" />
+    <ClInclude Include="..\include\FixedBuffer.h" />
+    <ClInclude Include="..\include\Formatter.h" />
+    <ClInclude Include="..\include\Logging.h" />
+    <ClInclude Include="..\include\SocketAPI.h" />
+    <ClInclude Include="..\include\YoungTime.h" />
+    <ClInclude Include="..\include\UdpAppender.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
