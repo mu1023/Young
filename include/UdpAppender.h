@@ -3,7 +3,7 @@
 #include<AppenderBase.h>
 #include<YoungDefine.h>
 #include<Formatter.h>
-#include<SocketAPI.h>
+#include<NetWorkAPI.h>
 #include<fmt/format.h>
 #include<iostream>
 #include<tuple>
@@ -27,7 +27,7 @@ namespace Young
 
 		const char*					m_Ip;
 		UInt32						m_Port;
-		socket_t					m_Sock;
+		SocketFd					m_Sock;
 
 		Formatter					m_Formatter;
 	};
@@ -79,7 +79,9 @@ namespace Young
 		logBuf dest;
 		m_Formatter.format(msg, dest);
 
-		::send(m_Sock, dest.data(), (Int32)dest.size(), 0);
+		if (::send(m_Sock, dest.data(), (Int32)dest.size(), 0) < 0) {
+			std::cout <<m_Sock<< "Put err : errcode = " << WSAGetLastError() << std::endl;
+		}
 	}
 
 

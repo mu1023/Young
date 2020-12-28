@@ -1,5 +1,5 @@
-#ifndef _YOUNG_SOCKETAPI_H_
-#define _YOUNG_SOCKETAPI_H_
+#ifndef _YOUNG_NETWORKAPI_H_
+#define _YOUNG_NETWORKAPI_H_
 
 #include<YoungDefine.h>
 #include <cstdarg>
@@ -30,7 +30,7 @@
 #endif
 namespace Young {
 #ifdef WINDOWS_YOUNG
-	typedef SOCKET socket_t;
+	typedef SOCKET SocketFd;
 	typedef int	   socklen_t;
 #	define YOUNG_INVALID_SOCKET		INVALID_SOCKET
 #	define YOUNG_SOCK_ERROR			SOCKET_ERROR
@@ -41,9 +41,20 @@ namespace Young {
 #	define YOUNG_EINTR				WSAEINTR
 #	define YOUNG_ENOBUFS			WSAENOBUFS
 #	define YOUNG_EAGAIN				WSAEAGAIN
+#	define YOUNG_ETIMEDOUT			WSAETIMEDOUT
 
+	typedef UInt32 Events;
+	const UInt32 NoneEvent = 0;
+#define poll(fdarray,fds,timeout) WSAPoll((fdarray),(fds),(timeout))
+
+
+#define SOCKET_STARTUP WSADATA wsaData;\
+	WSAStartup(MAKEWORD(2, 2), &wsaData);
+
+#define SOCKET_CLEANUP WSACleanup();
 #else
-	typedef int sock_t;
+
+	typedef int SocketFd;
 #	define YOUNG_INVALID_SOCKET		 -1
 #	define YOUNG_SOCK_ERROR			 -1
 
@@ -55,6 +66,11 @@ namespace Young {
 #	define YOUNG_EINTR				EINTR
 #	define YOUNG_ENOBUFS			ENOBUFS
 #	define YOUNG_EAGAIN				EAGAIN
+#	define YOUNG_ETIMEDOUT			ETIMEDOUT
+
+#define SOCKET_STARTUP
+
+#define SOCKET_CLEANUP
 #endif
 
 	inline int sock_error()
@@ -65,6 +81,8 @@ namespace Young {
 		return errno;
 #endif
 	}
+
+
 }
 
-#endif // !_YOUNG_SOCKETAPI_H_
+#endif // !_YOUNG_NETWORKAPI_H_

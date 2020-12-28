@@ -16,6 +16,9 @@
     <Filter Include="源文件\Logger">
       <UniqueIdentifier>{95db4ce2-cc6f-4386-8061-3f8a8e9f3014}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\net">
+      <UniqueIdentifier>{baeb7e6c-4869-4a77-8012-be4c1cd9a747}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="YoungTime.cpp">
@@ -35,6 +38,15 @@
     </ClCompile>
     <ClCompile Include="Logging.cpp">
       <Filter>源文件\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="PollDemultiplexer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Acceptor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Connector.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,11 +92,32 @@
     <ClInclude Include="..\include\Singleton.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\SocketAPI.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\UdpAppender.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Acceptor.h">
+      <Filter>头文件\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Reactor.h">
+      <Filter>头文件\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Connector.h">
+      <Filter>头文件\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\EventDemultiplexer.h">
+      <Filter>头文件\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\PollDemultiplexer.h">
+      <Filter>头文件\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\EventHandler.h">
+      <Filter>头文件\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NetWorkAPI.h">
+      <Filter>头文件\net</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

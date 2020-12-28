@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -126,7 +126,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\include\Acceptor.cpp" />
+    <ClCompile Include="..\include\Connector.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PollDemultiplexer.cpp" />
     <ClCompile Include="SharedMemory.cpp" />
     <ClCompile Include="DataPointLogger.cpp" />
     <ClCompile Include="Formatter.cpp" />
@@ -134,6 +137,12 @@
     <ClCompile Include="YoungTime.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\Acceptor.h" />
+    <ClInclude Include="..\include\Connector.h" />
+    <ClInclude Include="..\include\EventDemultiplexer.h" />
+    <ClInclude Include="..\include\EventHandler.h" />
+    <ClInclude Include="..\include\PollDemultiplexer.h" />
+    <ClInclude Include="..\include\Reactor.h" />
     <ClInclude Include="..\include\SharedMemory.h" />
     <ClInclude Include="..\include\SharedMemoryMap.h" />
     <ClInclude Include="..\include\Noncopyable.h" />
@@ -147,9 +156,12 @@
     <ClInclude Include="..\include\FixedBuffer.h" />
     <ClInclude Include="..\include\Formatter.h" />
     <ClInclude Include="..\include\Logging.h" />
-    <ClInclude Include="..\include\SocketAPI.h" />
+    <ClInclude Include="..\include\NetWorkAPI.h" />
     <ClInclude Include="..\include\YoungTime.h" />
     <ClInclude Include="..\include\UdpAppender.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
