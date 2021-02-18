@@ -24,9 +24,6 @@
     <ClCompile Include="YoungTime.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="SharedMemory.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -42,10 +39,19 @@
     <ClCompile Include="PollDemultiplexer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\include\Acceptor.cpp">
+    <ClCompile Include="Connector.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\include\Connector.cpp">
+    <ClCompile Include="Acceptor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Packet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Reactor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,8 +122,14 @@
     <ClInclude Include="..\include\NetWorkAPI.h">
       <Filter>头文件\net</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ClInclude Include="..\include\Protocol.h">
+      <Filter>头文件\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Packet.h">
+      <Filter>头文件\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NetBuffer.h">
+      <Filter>头文件\net</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

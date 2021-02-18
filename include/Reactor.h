@@ -2,10 +2,13 @@
 #define _YOUNG_REACTOR_H_
 #include<EventDemultiplexer.h>
 #include<memory>
+#include<mutex>
+#include<queue>
+#include<functional>
 namespace Young
 {
 
-	class Reactor
+	class Reactor : public std::enable_shared_from_this<Reactor>
 	{
 	public:
 		Reactor(std::shared_ptr<EventDemultiplexer> ptr):m_EventDemultiplexer(ptr)
@@ -35,8 +38,15 @@ namespace Young
 		Events WriteEvent(){return m_EventDemultiplexer->WriteEvent(); }
 		Events ErrorEvent(){return m_EventDemultiplexer->ErrorEvent(); }
 
+
+		virtual void OnConnected(SocketFd sockfd);
+
+		void PushEvent(std::function<void()> func);
 	private:
 		std::shared_ptr<EventDemultiplexer> m_EventDemultiplexer;
+
+		std::queue<std::function<void ()>>	m_Queue;
+		std::mutex							m_QueueMutex;
 	};
 }
 

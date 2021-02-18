@@ -2,7 +2,6 @@
 #define _YOUNG_NETWORKAPI_H_
 
 #include<YoungDefine.h>
-#include <cstdarg>
 
 #ifdef WINDOWS_YOUNG
 #ifndef FD_SETSIZE
@@ -40,7 +39,7 @@ namespace Young {
 #	define YOUNG_ECONNRESET			WSAECONNRESET
 #	define YOUNG_EINTR				WSAEINTR
 #	define YOUNG_ENOBUFS			WSAENOBUFS
-#	define YOUNG_EAGAIN				WSAEAGAIN
+#	define YOUNG_EAGAIN				WSAEWOULDBLOCK
 #	define YOUNG_ETIMEDOUT			WSAETIMEDOUT
 
 	typedef UInt32 Events;
@@ -81,7 +80,6 @@ namespace Young {
 		return errno;
 #endif
 	}
-
 
 }
 

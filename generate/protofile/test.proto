@@ -1,0 +1,10 @@
+//指定版本 使用protobuf3
+syntax = "proto3";
+
+message pass {
+	enum Param
+    {
+        NetPackageNullPmd_CS        = 0;
+        NetTickNullPmd_SC           = 1;
+    }
+}

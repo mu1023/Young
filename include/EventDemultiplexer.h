@@ -1,10 +1,11 @@
 #ifndef  _H_YOUNG_EVENTDEMULTIPLEXER_H
 #define  _H_YOUNG_EVENTDEMULTIPLEXER_H
-#include<EventHandler.h>
 #include<unordered_map>
 #include<memory>
+#include<NetWorkAPI.h>
 namespace Young
 {
+	class EventHandler;
 	typedef std::shared_ptr<EventHandler> EventHandlerPtr;
 
 	class EventDemultiplexer

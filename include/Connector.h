@@ -2,7 +2,9 @@
 #define _YOUNG_CONNECTOR_H_
 #include<EventHandler.h>
 #include<memory>
-#include<Reactor.h>
+#include<NetBuffer.h>
+#include<FixedBuffer.h>
+#include<mutex>
 namespace Young
 {
 
@@ -24,16 +26,32 @@ namespace Young
 	class Connector :public EventHandler, public std::enable_shared_from_this<Connector>
 	{
 	public:
-		Connector(SocketFd fd, std::shared_ptr<Reactor>& reactor);
+		const UInt32 WRITE_BUFFER_SIZE = 10000;
+		const UInt32 READ_BUFFER_SIZE = 10000;
+
+		void Close();
+
+		Connector(SocketFd fd, std::shared_ptr<Reactor> reactor);
+		~Connector();
 		void HandleRead()override;
+
 		void HandleWrite()override;
+
 		void HandleError()override;
+
 		SocketFd GetFd()override;
+
+		UInt32 Write(const char* msg, UInt32 len);
+
+
 	private:
 		SocketFd m_Fd;
-		std::shared_ptr<Reactor> m_Reactor;
-		char m_Buffer[10086];
-		NetConnectionStatus m_Status;
+
+
+		NetBuffer					m_ReadBuffer;
+		NetBuffer					m_WriteBuffer;
+		std::mutex				    m_Mutex;
+		NetConnectionStatus			m_Status;
 	};
 }
 #endif // !_YOUNG_CONNECTOR_H_

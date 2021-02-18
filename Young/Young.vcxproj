@@ -26,7 +26,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -77,11 +77,12 @@
       <SDLCheck>false</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>fmtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>fmtd.lib;libprotobufd.lib;libprotobuf-lited.lib;libprotocd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -126,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\include\Acceptor.cpp" />
-    <ClCompile Include="..\include\Connector.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\include\Reactor.cpp" />
+    <ClCompile Include="Acceptor.cpp" />
+    <ClCompile Include="Connector.cpp" />
+    <ClCompile Include="Packet.cpp" />
+    <ClCompile Include="Protocol.cpp" />
     <ClCompile Include="PollDemultiplexer.cpp" />
     <ClCompile Include="SharedMemory.cpp" />
     <ClCompile Include="DataPointLogger.cpp" />
@@ -141,6 +144,9 @@
     <ClInclude Include="..\include\Connector.h" />
     <ClInclude Include="..\include\EventDemultiplexer.h" />
     <ClInclude Include="..\include\EventHandler.h" />
+    <ClInclude Include="..\include\NetBuffer.h" />
+    <ClInclude Include="..\include\Packet.h" />
+    <ClInclude Include="..\include\Protocol.h" />
     <ClInclude Include="..\include\PollDemultiplexer.h" />
     <ClInclude Include="..\include\Reactor.h" />
     <ClInclude Include="..\include\SharedMemory.h" />
@@ -159,9 +165,6 @@
     <ClInclude Include="..\include\NetWorkAPI.h" />
     <ClInclude Include="..\include\YoungTime.h" />
     <ClInclude Include="..\include\UdpAppender.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
